@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTrack - Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+<div class="login">
+    
+    <img src="images/user.png" class="logousuario"/>
+
+    <h2>Iniciar Sesión</h2>
+
+    <div class="espacio"></div>
+
+    <label>Elegir usuario</label>
+    <select id="usuarios" onchange="llenarPin()">
+        <option value="">Seleccionar Usuario</option>
+        <option value="Diego">Diego</option>
+        <option value="Fernando">Fernando</option>
+        <option value="Esdras">Esdras</option>
+    </select>
+
+    <div class="espacio"></div>
+
+    <label>Digitar PIN</label>
+    <div class="pin">
+        <input type="password" maxlength="1">
+        <input type="password" maxlength="1">
+        <input type="password" maxlength="1">
+        <input type="password" maxlength="1">
+    </div>
+
+    <div class="espacio"></div>
+
+    <button onclick="login()">Iniciar Sesión</button>
+
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* ── REPORTS — extiende dashboard.css ── */
+
+.header-left { display:flex; align-items:center; gap:16px }
+
+.btn-back {
+  background:rgba(255,255,255,.15); border:none; color:#fff;
+  border-radius:8px; padding:6px 12px; cursor:pointer;
+  font-family:'Syne',sans-serif; font-size:.78rem; font-weight:600;
+  transition:background .15s; text-decoration:none;
+}
+.btn-back:hover { background:rgba(255,255,255,.28) }
+
+.container { max-width:1100px; margin:0 auto; padding:24px 20px }
+
+/* Tabs */
+.tabs {
+  display:flex; gap:4px; background:var(--card);
+  border:1px solid var(--border); border-radius:12px;
+  padding:4px; margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.tab-btn {
+  flex:1; padding:10px 12px; border:none; border-radius:9px;
+  background:transparent; cursor:pointer;
+  font-family:'Syne',sans-serif; font-size:.82rem; font-weight:600;
+  color:var(--muted); transition:all .2s;
+}
+.tab-btn.active { background:var(--accent); color:#fff; box-shadow:0 2px 8px rgba(26,127,212,.3) }
+.tab-btn:hover:not(.active) { color:var(--text); background:var(--card2) }
+
+/* Panels */
+.panel { display:none; animation:fadeUp .3s ease both }
+.panel.active { display:block }
+
+/* Report header extras */
+.report-sub    { font-size:.75rem; color:var(--muted); margin-top:3px; font-family:var(--mono) }
+.report-actions{ display:flex; gap:8px; align-items:center; flex-wrap:wrap }
+.rp-select     { max-width:220px }
+
+/* Timesheet grid */
+.ts-grid {
+  display:grid;
+  grid-template-columns: 170px repeat(7,1fr) 80px;
+  min-width:680px;
+}
+.ts-head {
+  background:#e8f1fb; padding:8px 10px;
+  color:var(--accent); font-size:.68rem; font-weight:600;
+  letter-spacing:.07em; text-transform:uppercase; text-align:center;
+}
+.ts-head:first-child { border-radius:8px 0 0 8px; text-align:left }
+.ts-head:last-child  { border-radius:0 8px 8px 0 }
+.ts-cell {
+  padding:10px 10px; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; font-size:.8rem;
+}
+.ts-cell.proj  { gap:8px; font-weight:600; color:var(--text) }
+.ts-cell.day   { font-family:var(--mono); color:var(--muted2); justify-content:center }
+.ts-cell.day.on{ color:var(--accent2); font-weight:500 }
+.ts-cell.tot   { font-family:var(--mono); font-weight:700; color:var(--text); justify-content:center; background:rgba(26,127,212,.04) }
+.ts-dot        { width:8px; height:8px; border-radius:50%; flex-shrink:0 }
+.ts-proj-sub   { font-size:.68rem; color:var(--muted); font-weight:400 }
+
+/* Freelancer bars */
+.fl-row {
+  display:grid; grid-template-columns:180px 1fr 100px 100px;
+  gap:12px; align-items:center;
+  padding:12px 0; border-bottom:1px solid var(--border);
+}
+.fl-row:last-child { border-bottom:none }
+.fl-name  { font-weight:600; font-size:.85rem; display:flex; align-items:center; gap:8px }
+.fl-sub   { font-size:.7rem; color:var(--muted); font-weight:400 }
+.fl-num   { font-family:var(--mono); font-size:.78rem; text-align:right; color:var(--muted) }
+.fl-num strong { display:block; font-size:.9rem; color:var(--text) }
+
+/* Progress bar */
+.prog-wrap { display:flex; align-items:center; gap:10px }
+.prog-bar  { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden }
+.prog-fill { height:100%; border-radius:3px; transition:width .8s cubic-bezier(.4,0,.2,1) }
+.prog-pct  { font-family:var(--mono); font-size:.72rem; color:var(--muted); min-width:36px; text-align:right }
+
+@media print {
+  .header,.tabs,.report-actions,.btn-back { display:none !important }
+  .panel  { display:block !important }
+  .card   { box-shadow:none; border:1px solid #ddd; break-inside:avoid }
+  body    { background:#fff }
+}
+
+@media(max-width:768px) {
+  .container { padding:12px }
+  .tabs      { gap:2px }
+  .tab-btn   { padding:8px 6px; font-size:.72rem }
+  .fl-row    { grid-template-columns:1fr 1fr; gap:8px }
+  .rp-select { max-width:160px }
+}
