@@ -83,7 +83,7 @@ function restoreTimerLocal() {
     if (!s.paused) {
       timerState.running = true;
       $('startBtn').textContent = '▶ Corriendo';
-      timerState.interval = setInterval(tick, 1000);
+      timerState.interval = setInterval(tick, 5);
     } else {
       timerState.paused = true;
       $('startBtn').textContent = '▶ Reanudar';
